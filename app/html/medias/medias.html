@@ -1,0 +1,35 @@
+<div>
+
+<form ng-submit="recherche">
+
+    <label for="singleSelect">Titre</label><br>
+	<input type="contient" ng-model="titreAChercher" placeholder="titre"/><br />
+	
+	<label for="singleSelect">Auteur</label><br>	
+	<input type="contient" ng-model="auteurAChercher" placeholder="nom auteur"/><br />
+	
+	<label for="singleSelect">Type</label><br>
+	<select name="SelectMediaType" id="SelectMediaTypeId" ng-model="data.SelectMediaType" multiple>
+      	<option value="Livre">Livre</option>
+     	<option value="CD">CD</option>
+      	<option value="DVD">DVD</option>
+    </select><br>
+    		
+    <button type="submit" >Recherche</button>	
+	</form>
+	
+	<form ng-submit="creationMedia">
+	<button type="submit">Nouveau</button>
+	</form>
+	<table>
+		<tr>
+			<th>Titre</th>
+			<th>Type Media</th>
+			<th>Auteur</th>
+			<th>Emprunté par</th>
+			<th>Date de retour</th>
+		</tr>
+		
+	</table>
+</div>
+//		$http.default.headers.common['Autorization'] = 'Basic' + authdata;

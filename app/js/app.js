@@ -1,4 +1,4 @@
-angular.module('mediatic', ['ngRoute', 'datatables','adherentsModule']);
+angular.module('mediatic', ['ngRoute', 'datatables','adherentsModule','mediasModule']);
 
 angular.module('mediatic')
     .config(function($routeProvider, $httpProvider) {
