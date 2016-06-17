@@ -21,15 +21,39 @@
 	<form ng-submit="creationMedia">
 	<button type="submit">Nouveau</button>
 	</form>
-	<table>
-		<tr>
-			<th>Titre</th>
-			<th>Type Media</th>
-			<th>Auteur</th>
-			<th>Emprunté par</th>
-			<th>Date de retour</th>
+        <table datatable="" class="display" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Auteur</th>
+                <th>Type</th>
+                <th>Emprunteur</th>
+                <th>Date d'emprunt</th>
+            </tr>
+        </thead>
+        <tfoot>
+           <tr>
+                <th>Titre</th>
+                <th>Auteur</th>
+                <th>Type</th>
+                <th>Emprunteur</th>
+                <th>Date d'emprunt</th>
+            </tr>
+        </tfoot>
+        <tbody>
+        
+            <tr ng-repeat="item in list">
+                    <a href="#/ficheMedia/{{item.titre}}">		
+            
+			<td ng-bind="item.titre"></td>
+			<td ng-bind="item.auteur"></td>
+			<td ng-bind="item.type"></td>
+			<td ng-bind="item.emprunteurs[0]"></td>
+			</a>
 		</tr>
-		
-	</table>
+           
+        </tbody>
+    </table>
+
 </div>
-//		$http.default.headers.common['Autorization'] = 'Basic' + authdata;
+
