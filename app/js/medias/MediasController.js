@@ -4,7 +4,7 @@ angular
 		
 		$scope.mediasModule = [];
 		
-		var myUrl = 'http://192.168.10.27:8090/resource/media.recherche';
+		var myUrl = 'http://192.168.10.12:8090/resource/media.recherche';
 		$http.get(myUrl).then(function(response){
 			$scope.list = response.data;
 			console.log(response.data);

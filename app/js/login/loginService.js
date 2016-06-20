@@ -1,10 +1,22 @@
 angular
-    .module('adherentsModule')
-        .factory('adherentsService', function($http) {
+    .module('loginModule')
+        .factory('loginService', function($http) {
 
-            var adherentsService = {};
+        	var connect = false;
+        	
+            var loginService = {};
+            
+            loginService.isConnected(){
+            	return connect;
+            }
 
-
+            loginService.connect(){
+            	
+            }
+            
+            loginService.disconnect(){
+            	
+            }
 
             var myUrl = 'http://192.168.10.12:8090/resource/adherent.recherche';
 
@@ -24,5 +36,5 @@ angular
 
                 return promise;
             };
-            return adherentsService;
+            return loginService;
         });

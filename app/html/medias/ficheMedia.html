@@ -1,8 +1,62 @@
-<div>
-	
-	<h1>
-		<span ng-bind="item.titre"></span>
-	</h1>
-	<div ng-bind="item.auteur"></div>
-	<div ng-bind="item.type"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h1><i class="mdi mdi-account-card-details"></i> Fiche Media</h1>
+
+            <br>
+
+            <!-- BEGIN DOWNLOAD PANEL -->
+            <div class="panel panel-default well">
+                <div class="panel-body">
+                    <form action="" class="form-horizontal " data-formname="ficheAdherent" method="post" id="ficheMedia" novalidate="novalidate">
+                        <!-- Titre-->
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="mdi mdi-pen"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="nom" placeholder="Titre" name="titre">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Date naissance & age -->
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="mdi mdi-book-open-page-variant"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="typeMedia" placeholder="Type de media" name="typeMedia">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="mdi mdi-account"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="auteur" placeholder="Auteur" name="auteur">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <button id="media-submit" type="submit" class="btn btn-default btn-info">Enregistrer</button>
+                            </div>
+                        </div>
+                        <input type="hidden" value="">
+                    </form>
+                </div>
+                <!-- end panel-body -->
+            </div>
+            <!-- end panel -->
+            <!-- END DOWNLOAD PANEL -->
+        </div>
+        <!-- end col-md-8 -->
+        
+    </div>
 </div>
