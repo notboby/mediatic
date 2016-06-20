@@ -7,4 +7,9 @@ angular.module('mediasModule').config(function($routeProvider){
 		templateUrl : 'html/medias/medias.html'
 	});
 	
+	$routeProvider.when('/ficheMedias', {
+		controller : 'MediasController',
+		templateUrl : 'html/medias/ficheMedia.html'
+	});
+	
 });
