@@ -1,29 +1,34 @@
-<div>
+<div class="container">
 
-<form ng-submit="recherche">
-
-    <label for="singleSelect">Titre</label><br>
-	<input type="contient" ng-model="titreAChercher" placeholder="titre"/><br />
-	
-	<label for="singleSelect">Auteur</label><br>	
-	<input type="contient" ng-model="auteurAChercher" placeholder="nom auteur"/><br />
-	
-	<label for="singleSelect">Type</label><br>
-	<select name="SelectMediaType" id="SelectMediaTypeId" ng-model="data.SelectMediaType" multiple>
-      	<option value="Livre">Livre</option>
-     	<option value="CD">CD</option>
-      	<option value="DVD">DVD</option>
-    </select><br>
-    		
-    <button type="submit" >Recherche</button>	
+	<form ng-submit="recherche">
+		<div class="form-group">
+	    	<label for="singleSelect">Titre</label>
+			<input type="contient" ng-model="titreAChercher" placeholder="titre" class="form-control"/>
+		</div>
+		<div class="form-group">
+			<label for="singleSelect">Auteur</label>	
+			<input type="contient" ng-model="auteurAChercher" placeholder="nom auteur" class="form-control"/>
+		</div>
+		<div class="form-group">
+			<label for="singleSelect">Type</label>
+				<select name="SelectMediaType" id="SelectMediaTypeId" ng-model="data.SelectMediaType" multiple class="form-control">
+	      			<option value="Livre">Livre</option>
+	     			<option value="CD">CD</option>
+	      			<option value="DVD">DVD</option>
+	    		</select>
+	    </div>
+	    <div style="text-align:center">
+	        <button type="submit" class="btn btn-default">Recherche</button>	
+		</div>
 	</form>
-	
 	<form ng-submit="creationMedia">
-	<button type="submit">Nouveau</button>
+		<div style="text-align:center; margin-top:10px;">
+			<button type="submit" class="btn btn-warning" style=" width: 95px">Nouveau</button>
+		</div>
 	</form>
-        <table datatable="" class="display" cellspacing="0" width="100%">
-            <thead>
-            <tr>
+	<table id="mediaTable" datatable="ng" class="display" cellspacing="0" width="100%">
+		<thead>
+			<tr>
                 <th>Titre</th>
                 <th>Auteur</th>
                 <th>Type</th>
@@ -32,6 +37,7 @@
             </tr>
         </thead>
         <tfoot>
+
            <tr>
                 <th>Titre</th>
                 <th>Auteur</th>
@@ -41,19 +47,28 @@
             </tr>
         </tfoot>
         <tbody>
-        
-            <tr ng-repeat="item in list">
-                    <a href="#/ficheMedia/{{item.titre}}">		
             
-			<td ng-bind="item.titre"></td>
-			<td ng-bind="item.auteur"></td>
-			<td ng-bind="item.type"></td>
-			<td ng-bind="item.emprunteurs[0]"></td>
-			</a>
-		</tr>
-           
+            <tr ng-repeat="item in list">
+<!--                     <a href="#/ficheMedia/{{item.titre}}">		 -->
+				<td ng-bind="item.titre"></td>
+				<td ng-bind="item.auteur"></td>
+				<td ng-bind="item.type"></td>
+				<td ng-bind="item.emprunteur.nom +' '+ item.emprunteur.prenom"></td>
+				<td ng-bind="item.emprunteurs[0].depart| date: 'dd MMMM yyyy'"></td>
+			</tr>
         </tbody>
     </table>
-
 </div>
-
+<script>
+    $('#mediaTable').dataTable( {
+        "language" : {
+            "paginate": {
+                "previous" : "Précédent",
+                "next" : "Suivant"
+            },
+            "search" : "Recherche",
+            "lengthMenu" : "Affiche _MENU_ adhérents",
+            "info" : "A modifier _PAGE_ MODIF _PAGES_"
+        }
+      } );
+</script>
