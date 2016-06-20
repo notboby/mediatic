@@ -1,0 +1,141 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h1><i class="mdi mdi-account-card-details"></i> Fiche Adhérent</h1>
+
+            <br>
+
+            <!-- BEGIN DOWNLOAD PANEL -->
+            <div class="panel panel-default well">
+                <div class="panel-body">
+                    <form action="" class="form-horizontal " data-formname="ficheAdherent" method="post" id="ficheAdherent" novalidate="novalidate">
+                        <!-- Nom & Prenom -->
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="mdi mdi-account"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="nom" placeholder="Nom" name="nom">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="mdi mdi-account"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="prenom" placeholder="Prénom" name="prenom"></div>
+                            </div>
+                        </div>
+
+                        <!-- Date naissance & age -->
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="mdi mdi-cake"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="dateNaissance" placeholder="Date de naissance" name="dateNaissance">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="mdi mdi-timer-sand"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="age" placeholder="Âge" name="age">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Adresse mail -->
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="mdi mdi-email"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="email" placeholder="Adresse mail" name="email">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- adresse rue et num -->
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="mdi mdi-home"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="adresse" placeholder="N° et rue" name="adresse">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CP et ville -->
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="mdi mdi-map-marker-radius"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="codePostal" placeholder="Code postal" name="codePostal">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="mdi mdi-city"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="ville" placeholder="Ville" name="ville"></div>
+                            </div>
+                        </div>
+
+                        <!-- date debut/fin cotisation + montant -->
+                        <div class="form-group">
+                            <div class="col-sm-4">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="mdi mdi-calendar-blank"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="DatePaiementCotisation" placeholder="Date paiement cotisation" name="DatePaiementCotisation">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="mdi mdi-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="DateFinAbonnement" placeholder="Date fin abonnement" name="DateFinAbonnement">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="mdi mdi-currency-eur"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="MontantCotisation" placeholder="Montant cotisation" name="MontantCotisation"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <button id="adherent-submit" type="submit" class="btn btn-default btn-info">Enregistrer</button>
+                            </div>
+                        </div>
+                        <input type="hidden" value=""></form>
+                </div>
+                <!-- end panel-body -->
+            </div>
+            <!-- end panel -->
+            <!-- END DOWNLOAD PANEL -->
+        </div>
+        <!-- end col-md-8 -->
+        
+    </div>
+</div>
