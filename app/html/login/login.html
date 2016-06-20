@@ -5,29 +5,13 @@
             <div class="wrap">
                 <p class="form-title">
                     Sign In</p>
-                <form class="login">
-                <input type="text" placeholder="Username" ng-model = "login" id = "login"/>
-                <input type="password" placeholder="Password" ng-model = "pass" id = "pass"/>
-                <input type="button" value="Sign In" ng-submit="connection()" class="btn btn-success btn-sm" />
-                <div class="remember-forgot">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" />
-                                    Remember Me
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-md-6 forgot-pass-content">
-                            <a href="javascript:void(0)" class="forgot-pass">Forgot Password</a>
-                        </div>
-                    </div>
-                </div>
+                <form class="login" ng-submit="connection()">
+	                <input type="text" placeholder="Username" ng-model="login" id="login"/>
+	                <input type="password" placeholder="Password" ng-model="pass" id="pass"/>
+	                <input type="submit" value="Sign In"  class="btn btn-success btn-sm" />
                 </form>
             </div>
         </div>
     </div>
-    <div class="posted-by">Posted By: <a href="http://www.jquery2dotnet.com">Bhaumik Patel</a></div>
 </div>
 

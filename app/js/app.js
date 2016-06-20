@@ -5,6 +5,6 @@ angular.module('mediatic')
 
         $routeProvider.otherwise('/');
 
-        //$httpProvider.defaults.header.post['Content-Type'] = 'application/x-www-form-urlencoded';
+        $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 });
