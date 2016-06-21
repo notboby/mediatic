@@ -12,7 +12,7 @@ angular
 			console.error('Erreur de chargement des medias');
 		});
 		
-		//$scope.
+		
 
 		
 		

@@ -49,12 +49,13 @@
         <tbody>
             
             <tr ng-repeat="item in list">
-<!--                     <a href="#/ficheMedia/{{item.titre}}">		 -->
+            <a href="#/ficheMedia/{{item.titre}}">		
 				<td ng-bind="item.titre"></td>
 				<td ng-bind="item.auteur"></td>
 				<td ng-bind="item.type"></td>
 				<td ng-bind="item.emprunteur.nom +' '+ item.emprunteur.prenom"></td>
 				<td ng-bind="item.emprunteurs[0].depart| date: 'dd MMMM yyyy'"></td>
+				 </a>
 			</tr>
         </tbody>
     </table>

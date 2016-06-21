@@ -4,37 +4,48 @@ angular
 
         	var connect = false;
         	
-            var loginService = {};
+        var loginService = {};
             
-            loginService.isConnected(){
+            loginService.isConnected = function(){
             	return connect;
             }
 
-            loginService.connect(){
-            	
-            }
-            
-            loginService.disconnect(){
-            	
-            }
 
-            var myUrl = 'http://192.168.10.12:8090/resource/adherent.recherche';
+           loginService.connection = function(login,pass){
+    			console.log("test1");
+    			
+    				
+    			var myUrl = 'http://192.168.10.12:8090/resource/connexion.login';
+    			$http.post(myUrl,
+    					{login:login, mdp:pass} 
+   					).then(function(response){
+    						var crypt = 'Basic ' + btoa(login+':'+pass);
+    						$http.defaults.headers.common['Authorization']=crypt;
+    						console.log(crypt);
+   						connect = true;
+   						console.log(connect);
+   						console.log("connected");
+    						
+    						document.location.href=" #/medias";	
+   						
+    					}, function(response){
+    						console.error('Erreur de connexion', response);
+    						$http.defaults.headers.common['Authorization'] = 'Basic ';
+    						connect = false;
+    						console.log(connect);
 
-
-            var promise = $http.get(myUrl).then(function(response) {
-                console.log(response.data);
-                //then sera une promesse dont le retour sera le resultat de ce qui est à l'intérieur
-                return response.data;
-
-            }, function(response) {
-                console.error("Erreur lors du chargement de la liste");
-                console.error(response.status);
-                return [];
-            });
-
-            adherentsService.getAdherents = function() {
-
-                return promise;
-            };
+    					});
+    		};
+    		
+    		loginService.deconnection = function(){
+   			
+   			
+  				$http.defaults.headers.common['Authorization'] = 'Basic ';
+  				document.location.href=" #/login";	
+  				connect = false;
+				console.log(connect);
+				console.log("disconnected");
+    		}
+    		
             return loginService;
         });

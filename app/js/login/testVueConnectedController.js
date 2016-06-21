@@ -1,6 +1,6 @@
 angular
 	.module('loginModule')
-	.controller('LoginController', function($scope, $http, $window,loginService){
+	.controller('testVueConnectedController', function($scope,loginService){
 		$scope.connect = function(){
 			return loginService.isConnected();
 		}
