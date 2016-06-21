@@ -1,4 +1,4 @@
-<table id="example" datatable="ng" class="display" cellspacing="0" width="100%">
+<table id="example" datatable="ng" dt-options="dtOptions" class="display" cellspacing="0" width="100%">
     <thead>
         <tr>
             <th>ID</th>
@@ -17,9 +17,11 @@
             <th>Date de naissance</th>
             <th>Cotisation à jour</th>
             <th>Nombre de médias empruntés</th>
+            <!--th></th-->
         </tr>
     </tfoot>
     <tbody>
+
         <tr ng-repeat="a in adherents">
             <td ng-bind="a.id"></td>
             <td ng-bind="a.nom"></td>

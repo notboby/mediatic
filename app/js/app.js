@@ -1,8 +1,5 @@
 angular.module('mediatic', ['ngRoute', 'datatables','adherentsModule','mediasModule','loginModule', '720kb.datepicker']);
 
-
-
-
 angular.module('mediatic')
     .config(function($routeProvider, $httpProvider) {
 
@@ -13,7 +10,6 @@ angular.module('mediatic')
 
     });
 
-
-angular.module('mediatic').run(function(DTDefaultOptions) {
+angular.module('mediatic').run(function(DTDefaultOptions, DTOptionsBuilder) {
     DTDefaultOptions.setLanguageSource('../config/French.json');
 });
