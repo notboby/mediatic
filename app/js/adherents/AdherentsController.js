@@ -11,7 +11,7 @@ angular.module('adherentsModule')
         });
 
 
-
+        $scope.adherent = [];
 
         //ajoute une option 'rowCallback'
         $scope.dtOptions = DTOptionsBuilder.newOptions().withOption('rowCallback',rowCallback);
@@ -30,26 +30,39 @@ angular.module('adherentsModule')
           return nRow;
       }
 
+console.log('test2');
+
+                $scope.finCotisation = function(){
+
+
+                  console.log('test');
+                    var dateDeb = $scope.adherent.datePaiementCotisation;
+                    var str = dateDeb.split('-');
+                    var annee = parseInt(str[2])+1;
+
+                    var dateFin = str[1] + '-' + str[0] + '-' + annee;
+
+                  /*  if (dateDeb !== undefined){
+                        dateDeb = dateDeb.split("-");
+                        console.log(dateDeb);
+
+                        var dateFin = new Date(dateDeb[1] +' '+ dateDeb[0] +' '+ dateDeb[2] );
+                        $scope.dateFinAbonnement =
+                        console.log($scope.dateFinAbonnement);
+
+                    }*/
 
 
 
-        /*      $scope.dtOptions = DTOptionsBuilder.newOptions().withColumnFilter({
-                aoColumns: [ { type: "text"},
-                                        { type: "text"},
-                                        { type: "text"},
-                                        { type: "text"},
-                                        { type: "text"}
-                                      ]
-            });*/
-        /*
-        }
-        function addPerson() {
 
-        }
-        function modifyPerson(index) {
-                  $window.location.href = '#/medias';
-        }/*
-        $scope.removePerson = function removePerson(index) {
-        	$scope.adherents.splice(index, 1);
-        }*/
-});
+
+
+
+                }
+
+
+
+
+
+
+    });

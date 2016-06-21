@@ -105,7 +105,9 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-calendar-blank"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="DatePaiementCotisation" ng-model="adherent.datePaiementCotisation" placeholder="Date paiement cotisation" name="DatePaiementCotisation">
+                                    <datepicker date-format="dd-MM-yyyy">
+                                        <input type="text" class="form-control" id="DatePaiementCotisation" ng-model="adherent.datePaiementCotisation" placeholder="Date paiement cotisation" name="DatePaiementCotisation" ng-bind="finCotisation()">
+                                    </datepicker>
                                 </div>
                             </div>
 
@@ -114,7 +116,9 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-calendar"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="DateFinAbonnement" placeholder="Date fin abonnement" name="DateFinAbonnement">
+                                    <datepicker date-format="dd-MM-yyyy">
+                                        <input type="text" class="form-control" id="DateFinAbonnement" placeholder="Date fin abonnement" name="DateFinAbonnement">
+                                    </datepicker>
                                 </div>
                             </div>
 
@@ -132,7 +136,8 @@
                                 <button id="adherent-submit" type="submit" ng-disabled="ficheAdherentForm.$invalid" class="btn btn-default btn-info">Enregistrer</button>
                             </div>
                         </div>
-                        <input type="hidden" value=""></form>
+                        <input type="hidden" value="">
+                      </form>
                 </div>
                 <!-- end panel-body -->
             </div>
