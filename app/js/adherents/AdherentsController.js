@@ -1,13 +1,14 @@
 angular.module('adherentsModule')
     .controller('AdherentsController', function($scope, adherentsService) {
 
+        $scope.adherent = [];
         $scope.adherents = [];
         adherentsService.getAdherents().then(function(param) {
             $scope.adherents = param;
         });
 
         $scope.calculAge = function() {
-            var dateNaiss = $scope.dateNaissance;
+            var dateNaiss = $scope.adherent.date_naissance;
             if (dateNaiss !== undefined) {
                 dateNaiss = dateNaiss.split("/");
 
@@ -16,14 +17,14 @@ angular.module('adherentsModule')
                 var ageDifMs = Date.now() - dateNaissFormat.getTime();
                 var ageDate = new Date(ageDifMs);
                 var ageFinal = Math.abs(ageDate.getUTCFullYear() - 1970);
-                $scope.age = ageFinal;
+                $scope.adherent.age = ageFinal;
 
             }
 
         }
 
         $scope.finCotisation = function() {
-            var dateDeb = $scope.datePaiementCotisation
+            var dateDeb = $scope.adherent.datePaiementCotisation
             if (dateDeb !== undefined) {
                 dateDeb = dateDeb.split("/");
 
@@ -31,7 +32,7 @@ angular.module('adherentsModule')
 
                 var dateFinAbonnement = new Date(dateDebFormat.setFullYear(dateDebFormat.getFullYear() + 1));
 
-                $scope.dateFinAbonnement = dateFinAbonnement.toLocaleDateString();
+                $scope.adherent.dateFinAbonnement = dateFinAbonnement.toLocaleDateString();
 
             }
         }
