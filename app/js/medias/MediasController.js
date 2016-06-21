@@ -4,6 +4,9 @@ angular
 		
 		$scope.mediasModule = [];
 		
+		$scope.listeMedia = ["CD", "Livre", "DVD"];
+		
+		
 		var myUrl = 'http://192.168.10.12:8090/resource/media.recherche';
 		$http.get(myUrl).then(function(response){
 			$scope.list = response.data;
@@ -16,32 +19,26 @@ angular
 		
 		$scope.ajout = function(){
 			
-			console.log("test fiche medias");
+			console.log("test fiche medias", $scope.type);
 			
-			var myUrl = 'http://192.168.10.12:8090/resource/media.creation'
-			$http.post(myUrl,
-					{titre:$scope.titre, auteur:$scope.auteur, type:$scope.type} 
+			var UrlCreation = 'http://192.168.10.12:8090/resource/media.creation';
+			$http.post(UrlCreation,
+					{titre:$scope.titre, type:$scope.type, auteur:$scope.auteur} 
 					).then(function(response){
 
-						console.log("OK§§§§!!!!!");
+						console.log("OK fiche media creation!!!!!");
 						console.log(response.data);
 						
 					}, function(response){
-						console.error('Erreur de connexion', response);
+						console.log($scope.type);
+						console.log($scope.auteur);
+						console.log($scope.titre);
+						console.error('Erreur de connexion lors de la création d\'un media', response);
 						$http.defaults.headers.common.authorization = 'Basic ';
 					});
 	}
 		
 		
 });
-
-
-angular.module('showcase.rowClickEvent', ['datatables'])
-.controller('RowClickEventCtrl', RowClickEventCtrl);
-
-function RowClickEventCtrl($scope, DTOptionsBuilder, DTColumnBuilder) {
-	console.log("O sa marche");
-
-}
 
 
