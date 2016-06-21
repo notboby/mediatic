@@ -47,8 +47,10 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-cake"></i>
                                     </div>
+                                    <datepicker date-format="dd/MM/yyyy">
                                     <input type="text" class="form-control" id="dateNaissance" ng-model="dateNaissance" placeholder="Date de naissance" name="dateNaissance" required>
                                 </div>
+                                </datepicker>
                                 <p ng-show="ficheAdherentForm.dateNaissance.$invalid && ficheAdherentForm.dateNaissance.$untouched" class="help-block">Champ obligatoire</p>
                             </div>
 
@@ -58,7 +60,7 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-timer-sand"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="age" placeholder="Âge" name="age">
+                                    <input type="text" class="form-control" id="age" placeholder="Âge" name="age" ng-model="age" ng-bind="calculAge()">
                                 </div>
                             </div>
                         </div>
@@ -129,7 +131,7 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-calendar-blank"></i>
                                     </div>
-                                    <datepicker date-format="dd-MM-yyyy">
+                                    <datepicker date-format="dd/MM/yyyy">
                                     <input type="text" class="form-control" id="datePaiementCotisation" ng-model="datePaiementCotisation" placeholder="Date paiement cotisation" name="datePaiementCotisation">
                                 </datepicker>
                                 </div>
@@ -141,7 +143,9 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-calendar"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="dateFinAbonnement" placeholder="Date fin abonnement" name="dateFinAbonnement" ng-model= "dateFinAbonnement" ng-bind="finCotisation()">
+                                    <datepicker date-format="dd/MM/yyyy">
+                                    <input type="text" class="form-control" id="dateFinAbonnement" placeholder="Date fin abonnement" name="dateFinAbonnement" ng-model="dateFinAbonnement" ng-bind="finCotisation()">
+                                    </datepicker>
                                 </div>
                             </div>
 
