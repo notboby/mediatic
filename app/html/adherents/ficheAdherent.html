@@ -2,7 +2,9 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <h1><i class="mdi mdi-account-card-details"></i> Fiche Adhérent</h1>
+            <h1>
+                <i class="mdi mdi-account-card-details"></i>
+                Fiche Adhérent</h1>
 
             <br>
 
@@ -13,37 +15,44 @@
                         <!-- Nom & Prenom -->
                         <div class="form-group">
                             <div class="col-sm-6">
+                                <label for="nom">Nom</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-account"></i>
                                     </div>
                                     <input type="text" class="form-control" id="nom" ng-model="nom" placeholder="Nom" name="nom" required>
-                                    <p ng-show="ficheAdherentForm.nom.$invalid && !ficheAdherentForm.nom.$pristine" class="help-block">Le nom est requis</p>
+
                                 </div>
+                                <p ng-show="ficheAdherentForm.nom.$invalid && ficheAdherentForm.nom.$untouched" class="help-block">Le nom est requis</p>
                             </div>
                             <div class="col-sm-6">
+                                <label for="prenom">Prénom</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-account"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="prenom" ng-model="prenom" placeholder="Prénom" name="prenom" required></div>
-                                    <p ng-show="ficheAdherentForm.prenom.$invalid && !ficheAdherentForm.prenom.$pristine" class="help-block">Le prénom est requis</p>
+
+                                    <input type="text" class="form-control" id="prenom" ng-model="prenom" placeholder="Prénom " name="prenom" required>
+                                </div>
+                                <p ng-show="ficheAdherentForm.prenom.$invalid && ficheAdherentForm.prenom.$untouched" class="help-block">Le prénom est requis</p>
                             </div>
                         </div>
 
                         <!-- Date naissance & age -->
                         <div class="form-group">
                             <div class="col-sm-6">
+                                <label for="dateNaissance">Date de naissance</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-cake"></i>
                                     </div>
                                     <input type="text" class="form-control" id="dateNaissance" ng-model="dateNaissance" placeholder="Date de naissance" name="dateNaissance" required>
-                                    <p ng-show="ficheAdherentForm.dateNaissance.$invalid && !ficheAdherentForm.dateNaissance.$pristine" class="help-block">Champ obligatoire</p>
                                 </div>
+                                <p ng-show="ficheAdherentForm.dateNaissance.$invalid && ficheAdherentForm.dateNaissance.$untouched" class="help-block">Champ obligatoire</p>
                             </div>
 
                             <div class="col-sm-6">
+                                <label for="age">Âge</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-timer-sand"></i>
@@ -56,19 +65,25 @@
                         <!-- Adresse mail -->
                         <div class="form-group">
                             <div class="col-sm-12">
+                                <label for="email">Adresse email</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-email"></i>
                                     </div>
-                                    <input type="email" class="form-control" id="email" ng-model="email" placeholder="Adresse mail" name="email" required>
-                                    <p ng-show="ficheAdherentForm.email.$invalid && !ficheAdherentForm.email.$pristine" ng-pattern="emailFormat" class="help-block">Email non valide</p>
+                                    <input type="email" class="form-control" id="email" ng-model="inputEmail" placeholder="Adresse mail" name="inputEmail"  ng-pattern="/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i" required>
+
                                 </div>
+                                <p ng-show="ficheAdherentForm.inputEmail.$error.email" class="help-block">Email non valide</p>
+                                <p ng-show="ficheAdherentForm.inputEmail.$error.required" class="help-block">Email requis</p>
+
+
                             </div>
                         </div>
 
                         <!-- adresse rue et num -->
                         <div class="form-group">
                             <div class="col-sm-12">
+                                <label for="adresse">Adresse</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-home"></i>
@@ -81,6 +96,7 @@
                         <!-- CP et ville -->
                         <div class="form-group">
                             <div class="col-sm-6">
+                                <label for="codePostal">Code Postal</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-map-marker-radius"></i>
@@ -90,6 +106,7 @@
                             </div>
 
                             <div class="col-sm-6">
+                                <label for="ville">Ville</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-city"></i>
@@ -101,6 +118,7 @@
                         <!-- date debut/fin cotisation + montant -->
                         <div class="form-group">
                             <div class="col-sm-4">
+                                <label for="DatePaiementCotisation">Date paiement cotisation</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-calendar-blank"></i>
@@ -110,6 +128,7 @@
                             </div>
 
                             <div class="col-sm-4">
+                                <label for="DateFinAbonnement">Date fin abonnement</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-calendar"></i>
@@ -119,6 +138,7 @@
                             </div>
 
                             <div class="col-sm-4">
+                                <label for="MontantCotisation">Montant cotisation</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-currency-eur"></i>
