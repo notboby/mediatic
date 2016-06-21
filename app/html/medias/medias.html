@@ -23,9 +23,11 @@
 	</form>
 	<form ng-submit="creationMedia">
 		<div style="text-align:center; margin-top:10px;">
-			<button type="submit" class="btn btn-warning" style=" width: 95px">Nouveau</button>
+		<a href="#/ficheMedias" class="btn btn-warning">Nouveau</a>
+<!-- 	//		<button type="submit" class="btn btn-warning" style=" width: 95px">Nouveau</button> -->
 		</div>
 	</form>
+	
 	<table id="mediaTable" datatable="ng" class="display" cellspacing="0" width="100%">
 		<thead>
 			<tr>
@@ -49,14 +51,14 @@
         <tbody>
             
             <tr ng-repeat="item in list">
-            <a href="#/ficheMedia/{{item.titre}}">		
 				<td ng-bind="item.titre"></td>
 				<td ng-bind="item.auteur"></td>
 				<td ng-bind="item.type"></td>
 				<td ng-bind="item.emprunteur.nom +' '+ item.emprunteur.prenom"></td>
 				<td ng-bind="item.emprunteurs[0].depart| date: 'dd MMMM yyyy'"></td>
-				 </a>
 			</tr>
         </tbody>
     </table>
+    
+    
 </div>

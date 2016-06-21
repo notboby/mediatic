@@ -5,11 +5,11 @@
             <h1><i class="mdi mdi-account-card-details"></i> Fiche Adhérent</h1>
 
             <br>
-
             <!-- BEGIN DOWNLOAD PANEL -->
-            <div class="panel panel-default well">
+            <div class="panel panel-default well" ng-show="true">
                 <div class="panel-body">
                     <form action="" class="form-horizontal " name="ficheAdherentForm" ng-submit="submitForm(ficheAdherentForm.$valid)" id="ficheAdherentForm" novalidate>
+
                         <!-- Nom & Prenom -->
                         <div class="form-group">
                             <div class="col-sm-6">
@@ -17,17 +17,18 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-account"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="nom" ng-model="nom" placeholder="Nom" name="nom" required>
-                                    <p ng-show="ficheAdherentForm.nom.$invalid && !ficheAdherentForm.nom.$pristine" class="help-block">Le nom est requis</p>
+                                    <input type="text" class="form-control" id="nom" ng-model="adherent.nom" placeholder="Nom" name="nom" required>
                                 </div>
+                                <p ng-show="ficheAdherentForm.nom.$invalid && ficheAdherentForm.nom.$untouched" class="help-block">Le nom est requis</p>
                             </div>
                             <div class="col-sm-6">
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-account"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="prenom" ng-model="prenom" placeholder="Prénom" name="prenom" required></div>
-                                    <p ng-show="ficheAdherentForm.prenom.$invalid && !ficheAdherentForm.prenom.$pristine" class="help-block">Le prénom est requis</p>
+                                    <input type="text" class="form-control" id="prenom" ng-model="adherent.prenom" placeholder="Prénom " name="prenom" required>
+                                </div>
+                                <p ng-show="ficheAdherentForm.prenom.$invalid && ficheAdherentForm.prenom.$untouched" class="help-block">Le prénom est requis</p>
                             </div>
                         </div>
 
@@ -38,9 +39,12 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-cake"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="dateNaissance" ng-model="dateNaissance" placeholder="Date de naissance" name="dateNaissance" required>
-                                    <p ng-show="ficheAdherentForm.dateNaissance.$invalid && !ficheAdherentForm.dateNaissance.$pristine" class="help-block">Champ obligatoire</p>
+
+                                    <datepicker date-format="dd/MM/yyyy">
+                                    <input type="text" class="form-control" id="dateNaissance" ng-model="adherent.date_naissance" placeholder="Date de naissance" name="dateNaissance" required>
                                 </div>
+                                </datepicker>
+                                <p ng-show="ficheAdherentForm.dateNaissance.$invalid && ficheAdherentForm.dateNaissance.$untouched" class="help-block">Champ obligatoire</p>
                             </div>
 
                             <div class="col-sm-6">
@@ -48,7 +52,7 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-timer-sand"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="age" placeholder="Âge" name="age">
+                                    <input type="text" class="form-control" id="age" placeholder="Âge" name="age" ng-model="adherent.age" ng-bind="calculAge()">
                                 </div>
                             </div>
                         </div>
@@ -60,9 +64,18 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-email"></i>
                                     </div>
-                                    <input type="email" class="form-control" id="email" ng-model="email" placeholder="Adresse mail" name="email" required>
-                                    <p ng-show="ficheAdherentForm.email.$invalid && !ficheAdherentForm.email.$pristine" ng-pattern="emailFormat" class="help-block">Email non valide</p>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="email"
+                                        ng-model="adherent.email"
+                                        placeholder="Adresse mail"
+                                        name="inputEmail"
+                                        ng-pattern="/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i"
+                                        required>
                                 </div>
+                                <p ng-show="ficheAdherentForm.inputEmail.$error.pattern" class="help-block">Email non valide</p>
+                                 <p ng-show="ficheAdherentForm.inputEmail.$error.required" class="help-block">Email requis</p>
                             </div>
                         </div>
 
@@ -73,7 +86,7 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-home"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="adresse" ng-model="adresse" placeholder="N° et rue" name="adresse">
+                                    <input type="text" class="form-control" id="adresse" ng-model="adherent.adresse.ligne1" placeholder="N° et rue" name="adresse">
                                 </div>
                             </div>
                         </div>
@@ -85,7 +98,7 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-map-marker-radius"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="codePostal" ng-model="codePostal" placeholder="Code postal" name="codePostal">
+                                    <input type="text" class="form-control" id="codePostal" ng-model="adherent.adresse.codepostal" placeholder="Code postal" name="codePostal">
                                 </div>
                             </div>
 
@@ -94,7 +107,7 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-city"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="ville" ng-model="ville" placeholder="Ville" name="ville"></div>
+                                    <input type="text" class="form-control" id="ville" ng-model="adherent.adresse.ville" placeholder="Ville" name="ville"></div>
                             </div>
                         </div>
 
@@ -105,7 +118,10 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-calendar-blank"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="DatePaiementCotisation" ng-model="DatePaiementCotisation" placeholder="Date paiement cotisation" name="DatePaiementCotisation">
+
+                                    <datepicker date-format="dd/MM/yyyy">
+                                    <input type="text" class="form-control" id="datePaiementCotisation" ng-model="adherent.datePaiementCotisation" placeholder="Date paiement cotisation" name="datePaiementCotisation">
+                                </datepicker>
                                 </div>
                             </div>
 
@@ -114,7 +130,9 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-calendar"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="DateFinAbonnement" placeholder="Date fin abonnement" name="DateFinAbonnement">
+                                    <datepicker date-format="dd/MM/yyyy">
+                                    <input type="text" class="form-control" id="dateFinAbonnement" placeholder="Date fin abonnement" name="dateFinAbonnement" ng-model="adherent.dateFinAbonnement" ng-bind="finCotisation()">
+                                    </datepicker>
                                 </div>
                             </div>
 
@@ -123,16 +141,18 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-currency-eur"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="MontantCotisation" ng-model="MontantCotisation" placeholder="Montant cotisation" name="MontantCotisation"></div>
+                                    <input type="text" class="form-control" id="MontantCotisation" ng-model="adherent.montantCotisation" placeholder="Montant cotisation" name="MontantCotisation"></div>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-12">
                                 <button id="adherent-submit" type="submit" ng-disabled="ficheAdherentForm.$invalid" class="btn btn-default btn-info">Enregistrer</button>
+
                             </div>
                         </div>
-                        <input type="hidden" value=""></form>
+                        <input type="hidden" value="">
+                      </form>
                 </div>
                 <!-- end panel-body -->
             </div>
@@ -140,6 +160,5 @@
             <!-- END DOWNLOAD PANEL -->
         </div>
         <!-- end col-md-8 -->
-
     </div>
 </div>

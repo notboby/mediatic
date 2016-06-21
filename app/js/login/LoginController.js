@@ -6,6 +6,7 @@ angular
 		}
 		$scope.connection = function(){
 			
+
 			loginService.connection($scope.login,$scope.pass)
 			$scope.connect = loginService.isConnected();
 			

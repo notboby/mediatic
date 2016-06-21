@@ -6,8 +6,13 @@ angular.module('adherentsModule')
             templateUrl: "html/adherents/adherents.html",
             controller: "AdherentsController"
         });
-        $routeProvider.when('/ficheAdherent', {
+        $routeProvider.when('/ficheAdherent/', {
             templateUrl: "html/adherents/ficheAdherent.html",
             controller: "AdherentsController"
         });
+        $routeProvider.when('/ficheAdherent/:ref', {
+            templateUrl: "html/adherents/ficheAdherent.html",
+            controller: "FicheAdherentController"
+        });
+
     })
