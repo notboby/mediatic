@@ -1,4 +1,4 @@
-<table id="example" datatable="ng" class="display" cellspacing="0" width="100%">
+<table id="example" datatable="ng" dt-options="dtOptions" class="display" cellspacing="0" width="100%">
     <thead>
         <tr>
             <th>ID</th>
@@ -17,9 +17,11 @@
             <th>Date de naissance</th>
             <th>Cotisation à jour</th>
             <th>Nombre de médias empruntés</th>
+            <!--th></th-->
         </tr>
     </tfoot>
     <tbody>
+
         <tr ng-repeat="a in adherents">
             <td ng-bind="a.id"></td>
             <td ng-bind="a.nom"></td>
@@ -27,7 +29,12 @@
             <td ng-bind="a.date_naissance | date: 'dd/MM/yyyy'"></td>
             <td ng-bind="a.cotisation.fin | date: 'dd/MM/yyyy'"></td>
             <td ng-bind="a.nombre_media"></td>
+            <!--td>
+	            <button type="button" ng-click="modifyPerson($index)" class="btn btn-warning"><i class="fa fa-edit"></i></button>
+	            <button type="button" ng-click="removePerson($index)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+            </td-->
         </tr>
+
 
     </tbody>
 </table>

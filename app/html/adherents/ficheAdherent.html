@@ -17,7 +17,7 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-account"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="nom" ng-model="nom" placeholder="Nom" name="nom" required>
+                                    <input type="text" class="form-control" id="nom" ng-model="adherent.nom" placeholder="Nom" name="nom" required>
                                     <p ng-show="ficheAdherentForm.nom.$invalid && !ficheAdherentForm.nom.$pristine" class="help-block">Le nom est requis</p>
                                 </div>
                             </div>
@@ -26,7 +26,7 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-account"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="prenom" ng-model="prenom" placeholder="Prénom" name="prenom" required></div>
+                                    <input type="text" class="form-control" id="prenom" ng-model="adherent.prenom" placeholder="Prénom" name="prenom" required></div>
                                     <p ng-show="ficheAdherentForm.prenom.$invalid && !ficheAdherentForm.prenom.$pristine" class="help-block">Le prénom est requis</p>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-cake"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="dateNaissance" ng-model="dateNaissance" placeholder="Date de naissance" name="dateNaissance" required>
+                                    <input type="text" class="form-control" id="dateNaissance" ng-model="adherent.date_naissance" placeholder="Date de naissance" name="dateNaissance" required>
                                     <p ng-show="ficheAdherentForm.dateNaissance.$invalid && !ficheAdherentForm.dateNaissance.$pristine" class="help-block">Champ obligatoire</p>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-timer-sand"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="age" placeholder="Âge" name="age">
+                                    <input type="text" class="form-control" id="age" ng-model="adherent.age" placeholder="Âge" name="age">
                                 </div>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-email"></i>
                                     </div>
-                                    <input type="email" class="form-control" id="email" ng-model="email" placeholder="Adresse mail" name="email" required>
+                                    <input type="email" class="form-control" id="email" ng-model="adherent.email" placeholder="Adresse mail" name="email" required>
                                     <p ng-show="ficheAdherentForm.email.$invalid && !ficheAdherentForm.email.$pristine" ng-pattern="emailFormat" class="help-block">Email non valide</p>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-home"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="adresse" ng-model="adresse" placeholder="N° et rue" name="adresse">
+                                    <input type="text" class="form-control" id="adresse" ng-model="adherent.adresse.ligne1" placeholder="N° et rue" name="adresse">
                                 </div>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-map-marker-radius"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="codePostal" ng-model="codePostal" placeholder="Code postal" name="codePostal">
+                                    <input type="text" class="form-control" id="codePostal" ng-model="adherent.adresse.codepostal" placeholder="Code postal" name="codePostal">
                                 </div>
                             </div>
 
@@ -94,7 +94,7 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-city"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="ville" ng-model="ville" placeholder="Ville" name="ville"></div>
+                                    <input type="text" class="form-control" id="ville" ng-model="adherent.adresse.ville" placeholder="Ville" name="ville"></div>
                             </div>
                         </div>
 
@@ -105,7 +105,7 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-calendar-blank"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="DatePaiementCotisation" ng-model="DatePaiementCotisation" placeholder="Date paiement cotisation" name="DatePaiementCotisation">
+                                    <input type="text" class="form-control" id="DatePaiementCotisation" ng-model="adherent.datePaiementCotisation" placeholder="Date paiement cotisation" name="DatePaiementCotisation">
                                 </div>
                             </div>
 
@@ -123,7 +123,7 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-currency-eur"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="MontantCotisation" ng-model="MontantCotisation" placeholder="Montant cotisation" name="MontantCotisation"></div>
+                                    <input type="text" class="form-control" id="MontantCotisation" ng-model="adherent.montantCotisation" placeholder="Montant cotisation" name="MontantCotisation"></div>
                             </div>
                         </div>
 

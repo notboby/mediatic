@@ -1,7 +1,4 @@
-angular.module('mediatic', ['ngRoute', 'datatables','adherentsModule','mediasModule','loginModule']);
-
-
-
+angular.module('mediatic', ['ngRoute', 'datatables',/*  'datatables.columnfilter',*/ 'adherentsModule','mediasModule','loginModule']);
 
 angular.module('mediatic')
     .config(function($routeProvider, $httpProvider) {
@@ -13,7 +10,6 @@ angular.module('mediatic')
 
     });
 
-
-angular.module('mediatic').run(function(DTDefaultOptions) {
+angular.module('mediatic').run(function(DTDefaultOptions, DTOptionsBuilder) {
     DTDefaultOptions.setLanguageSource('../config/French.json');
 });

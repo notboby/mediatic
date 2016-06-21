@@ -11,6 +11,7 @@ angular
 					).then(function(response){
 						var crypt = 'Basic ' + btoa($scope.login+':'+$scope.pass);
 						$http.defaults.headers.common['Authorization']=crypt;
+						$window.location.href = '#/adherents';
 						console.log(crypt);
 						
 					}, function(response){
