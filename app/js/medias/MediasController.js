@@ -1,7 +1,7 @@
 angular
 	.module('mediasModule')
-	.controller('MediasController', function($scope,$http){
-		
+	.controller('MediasController', function($scope,$http, $rootScope){
+    	$rootScope.pageActive = "medias";
 		$scope.list = [];
 		
 		$scope.listeMedia = ["CD", "Livre", "DVD"];

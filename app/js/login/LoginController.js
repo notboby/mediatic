@@ -1,6 +1,8 @@
 angular
 	.module('loginModule')
-	.controller('LoginController', function($scope, $http, $window,loginService){
+	.controller('LoginController', function($scope, $http, $rootScope, $window,loginService){
+    	$rootScope.pageActive = "login";
+		
 		$scope.connect = function(){
 			return loginService.isConnected();
 		}
@@ -18,5 +20,9 @@ angular
 			loginService.deconnection();
 			$scope.connect = loginService.isConnected();
 
+		}
+		
+		$scope.isActive = function(route){
+			return route === $scope.pageActive;
 		}
 	});

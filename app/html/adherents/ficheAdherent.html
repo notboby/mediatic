@@ -120,7 +120,7 @@
                                     </div>
 
                                     <datepicker date-format="dd/MM/yyyy">
-                                    <input type="text" class="form-control" id="datePaiementCotisation" ng-model="adherent.datePaiementCotisation" placeholder="Date paiement cotisation" name="datePaiementCotisation">
+                                    <input type="text" class="form-control" id="datePaiementCotisation" ng-model="adherent.cotisation.debut" placeholder="Date paiement cotisation" name="datePaiementCotisation">
                                 </datepicker>
                                 </div>
                             </div>
@@ -131,7 +131,7 @@
                                         <i class="mdi mdi-calendar"></i>
                                     </div>
                                     <datepicker date-format="dd/MM/yyyy">
-                                    <input type="text" class="form-control" id="dateFinAbonnement" placeholder="Date fin abonnement" name="dateFinAbonnement" ng-model="adherent.dateFinAbonnement" ng-bind="finCotisation()">
+                                    <input type="text" class="form-control" id="dateFinAbonnement" placeholder="Date fin abonnement" name="dateFinAbonnement" ng-model="adherent.cotisation.fin" ng-bind="finCotisation()">
                                     </datepicker>
                                 </div>
                             </div>
@@ -141,7 +141,7 @@
                                     <div class="input-group-addon">
                                         <i class="mdi mdi-currency-eur"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="MontantCotisation" ng-model="adherent.montantCotisation" placeholder="Montant cotisation" name="MontantCotisation"></div>
+                                    <input type="text" class="form-control" id="MontantCotisation" ng-model="adherent.cotisation.montant" placeholder="Montant cotisation" name="MontantCotisation"></div>
                             </div>
                         </div>
 

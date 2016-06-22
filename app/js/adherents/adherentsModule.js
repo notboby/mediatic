@@ -8,11 +8,11 @@ angular.module('adherentsModule')
         });
         $routeProvider.when('/ficheAdherent/', {
             templateUrl: "html/adherents/ficheAdherent.html",
-            controller: "AdherentsController"
+            controller: "FicheAdherentController"
         });
         $routeProvider.when('/ficheAdherent/:ref', {
             templateUrl: "html/adherents/ficheAdherent.html",
-            controller: "FicheAdherentController"
+            controller: "FicheAdherentModController"
         });
 
     })

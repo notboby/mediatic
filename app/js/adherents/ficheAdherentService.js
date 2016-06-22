@@ -5,15 +5,13 @@ angular
 
 	var myUrl = 'http://192.168.10.12:8090/resource/adherent.accession/?id=';
 
-
-      console.log('test31');
-      ficheAdherentService.getAdherent = function(id){
-          var promesse = $http.get(myUrl + id).then(function(response){
-              return response.data;
-          },function(cause){
+	ficheAdherentService.getAdherent = function(id){
+		var promesse = $http.get(myUrl + id).then(function(response){
+			return response.data;
+		},function(cause){
               console.log(cause.data);
-          });
-          return promesse;
-      }
-      return ficheAdherentService;
+		});
+			return promesse;
+      	}
+      	return ficheAdherentService;
 });
