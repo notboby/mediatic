@@ -11,5 +11,8 @@ angular.module('mediasModule').config(function($routeProvider){
 		controller : 'MediasController',
 		templateUrl : 'html/medias/ficheMedia.html'
 	});
-	
+    $routeProvider.when('/ficheMedias/:ref', {
+        templateUrl: "html/medias/ficheMedia.html",
+        controller: "FicheMediasController"
+    });
 });
