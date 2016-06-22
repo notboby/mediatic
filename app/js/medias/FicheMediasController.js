@@ -1,18 +1,16 @@
-//angular.module('ficheMedia').controller('', 
-//	['$scope',
-//	 '$routeParams',
-//	 '$http',
-//	 function($scope, $routeParams, $http){
-//		var id=5;
-//	//	var id = $routeParams.ref;
-//		var url = 'http://192.168.10.27:8090/resource/media.recherche/'
-//					+id;
-//		
-//		$http.get(url).then(function(resultat){
-//			$scope.livre = resultat.data;
-//		}, function (){
-//			console.error('Erreur');
-//			$scope
-//		});
-//		
-//	}]);
+angular
+	.module('mediasModule')
+	.controller('FicheMediasController', function($scope, $routeParams, ficheMediaService) {
+		console.log('test fiche medias controller');
+		var id = $routeParams.ref;
+		
+		$scope.mediasModule = [];
+		$scope.listeMedia = ["CD", "Livre", "DVD"];		
+		
+		ficheMediaService.getMedia(id).then(function(param){
+			$scope.auteur = param.auteur;
+			$scope.titre = param.titre;
+			$scope.type = param.type;
+		});
+
+});

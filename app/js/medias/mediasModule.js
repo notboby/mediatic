@@ -15,4 +15,9 @@ angular.module('mediasModule').config(function($routeProvider){
 		activetab: "ficheMedias"
 	});
 
+    $routeProvider.when('/ficheMedias/:ref', {
+        templateUrl: "html/medias/ficheMedia.html",
+        controller: "FicheMediasController"
+    });
 });
+
