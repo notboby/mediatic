@@ -2,7 +2,7 @@ angular
 	.module('mediasModule')
 	.controller('MediasController', function($scope,$http, $rootScope){
 
-		$rootScope.pageActive = 'medias';
+    	$rootScope.pageActive = "medias";
 
 		$scope.list = [];
 

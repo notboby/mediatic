@@ -57,6 +57,7 @@
         <script src="js/adherents/adherentsModule.js"></script>
         <script src="js/adherents/AdherentsController.js"></script>
         <script src="js/adherents/FicheAdherentController.js"></script>
+        <script src="js/adherents/FicheAdherentModController.js"></script>
         <script src="js/adherents/adherentsService.js"></script>
         <script src="js/adherents/ficheAdherentService.js"></script>
         <script src="js/medias/mediasModule.js"></script>
@@ -64,13 +65,12 @@
         <script src="js/login/loginModule.js"></script>
         <script src="js/login/loginService.js"></script>
         <script src="js/login/LoginController.js"></script>
-
-
+        <script src="js/login/testVueConnectedController.js"></script>
 
     </head>
+    <body ng-controller="testVueConnectedController">
+        <nav class="navbar navbar-default" ng-show="adminConnect() || etudientConnect()" >
 
-    <body ng-controller="LoginController">
-        <nav class="navbar navbar-default" ng-show="connect()" >
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -81,7 +81,7 @@
                         <span class="icon-bar"></span>
 
                     </button>
-                    <a class="navbar-brand" href="#/"><i class="mdi mdi-book-open-page-variant"></i></a>
+                    <a ng-class="{active:isActive('login')}" class="navbar-brand" href="#/"><i class="mdi mdi-book-open-page-variant"></i></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -91,23 +91,28 @@
                             <a href="#/medias">Medias
                             </a>
                         </li>
+
+                        <li ng-class="{active:isActive('media')}">
+                            <a href="#/ficheMedias" ng-show="adminConnect()">Fiche Media</a>
+                        </li>
                         <li ng-class="{active:isActive('adherents')}">
                             <a href="#/adherents">Adhérents</a>
                         </li>
-
                         <li ng-class="{active:isActive('adherent')}">
-                            <a href="#/ficheAdherent">Fiche Adhérent</a>
+                            <a href="#/ficheAdherent" ng-show="adminConnect()">Fiche Adhérent</a>
 						</li>
-						<li ng-class="{active:isActive('media')}">
-                            <a href="#/ficheMedias">Fiche Media</a>
-                        </li>
+
                     </ul>
 
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right"  >
                         <li>
-                            <a href="#">Déconnexion</a>
-                        </li>
+                        <form ng-controller="LoginController" class="login" ng-submit="deconnection()">
 
+                	<input type="submit" value="Deconnection"  class="btn btn-success btn-sm" />
+                </form>
+
+                        </li>
+ 					</ul>
                     </div>
                     <!-- /.navbar-collapse -->
                 </div>
