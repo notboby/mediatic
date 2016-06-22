@@ -49,8 +49,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-sm-12">
-                                <button id="media-submit" type="submit" class="btn btn-default btn-info" ng-disabled="ficheMediasForm.$invalid">Enregistrer</button>
+                            <div ng-controller="testVueConnectedController" class="col-sm-12">
+                                <button id="media-submit" type="submit" class="btn btn-default btn-info" ng-show="adminConnect()" ng-disabled="ficheMediasForm.$invalid">Enregistrer</button>
                             </div>
                         </div>
                         <input type="hidden" value="">
