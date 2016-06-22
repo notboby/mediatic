@@ -28,3 +28,7 @@ h4 {
 .cadreLogin .wrapper {
     text-align: center;
 }
+
+#tableAdherent td {
+    cursor: pointer;
+}
