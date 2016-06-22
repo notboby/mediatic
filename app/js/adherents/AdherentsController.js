@@ -1,6 +1,7 @@
 angular.module('adherentsModule')
-    .controller('AdherentsController', function($scope, $window, adherentsService, DTOptionsBuilder /*, DTColumnDefBuilder*/ ) {
+    .controller('AdherentsController', function($scope, $window, adherentsService, DTOptionsBuilder /*, DTColumnDefBuilder*/ , $rootScope) {
 
+        $rootScope.pageActive = 'adherents';
 
             $scope.adherent = [];
             $scope.adherents = [];

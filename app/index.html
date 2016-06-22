@@ -50,6 +50,9 @@
         <!-- MDI ICON -->
         <link href="bower_components/mdi/css/materialdesignicons.css" media="all" rel="stylesheet" type="text/css" />
 
+        <link href="css/style.css" media="all" rel="stylesheet" type="text/css" />
+
+
         <script src="js/app.js"></script>
         <script src="js/adherents/adherentsModule.js"></script>
         <script src="js/adherents/AdherentsController.js"></script>
@@ -61,7 +64,11 @@
         <script src="js/login/loginModule.js"></script>
         <script src="js/login/loginService.js"></script>
         <script src="js/login/LoginController.js"></script>
+
+
+
     </head>
+
     <body ng-controller="LoginController">
         <nav class="navbar navbar-default" ng-show="connect()" >
             <div class="container-fluid">
@@ -72,7 +79,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                       
+
                     </button>
                     <a class="navbar-brand" href="#/"><i class="mdi mdi-book-open-page-variant"></i></a>
                 </div>
@@ -80,19 +87,18 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active">
+                        <li ng-class="{active:isActive('medias')}">
                             <a href="#/medias">Medias
-                                <span class="sr-only">(current)</span>
                             </a>
                         </li>
-                        <li>
+                        <li ng-class="{active:isActive('adherents')}">
                             <a href="#/adherents">Adhérents</a>
                         </li>
-                        
-                        <li>
+
+                        <li ng-class="{active:isActive('adherent')}">
                             <a href="#/ficheAdherent">Fiche Adhérent</a>
 						</li>
-						<li>
+						<li ng-class="{active:isActive('media')}">
                             <a href="#/ficheMedias">Fiche Media</a>
                         </li>
                     </ul>

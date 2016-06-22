@@ -1,4 +1,4 @@
-angular.module('mediatic', ['ngRoute', 'datatables','adherentsModule','mediasModule','loginModule', '720kb.datepicker']);
+angular.module('mediatic', ['ngRoute', 'datatables','adherentsModule','mediasModule','loginModule','720kb.datepicker']);
 
 angular.module('mediatic')
     .config(function($routeProvider, $httpProvider) {
