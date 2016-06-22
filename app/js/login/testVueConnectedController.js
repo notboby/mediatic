@@ -1,19 +1,19 @@
 angular
-	.module('loginModule')
-	.controller('testVueConnectedController', function($scope,$rootScope, loginService){
+    .module('loginModule')
+    .controller('testVueConnectedController', function($scope, $rootScope, loginService) {
 
-		$rootScope.pageActive = "login";
+        $rootScope.pageActive = "login";
 
-		$scope.adminConnect = function(){
-			return loginService.adminIsConnected();
-		}
+        $scope.adminConnect = function() {
+            return loginService.adminIsConnected();
+        }
 
-		$scope.etudientConnect = function(){
-			return loginService.etudientIsConnected();
-		}
+        $scope.etudientConnect = function() {
+            return loginService.etudientIsConnected();
+        }
 
-		$scope.isActive = function(route){
-			return route === $scope.pageActive;
-		}
+        $scope.isActive = function(route) {
+            return route === $scope.pageActive;
+        }
 
-	});
+    });

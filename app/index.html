@@ -7,14 +7,11 @@
 
         <title>Mediatic</title>
 
-
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="bower_components/jquery/dist/jquery.js"></script>
 
-
         <!-- Bootstrap -->
         <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-
 
         <!-- jQuery dataTables -->
         <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
@@ -34,11 +31,8 @@
         <!-- Angular dataTables bootstrap-->
         <script src="bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.js"></script>
 
-
         <!-- Angular dataTables column filter->
 		<script src="bower_components/angular-datatables/dist/plugins/columnfilter/angular-datatables.columnfilter.js"></script-->
-
-
 
         <link href="bower_components/angular-datatables/dist/css/angular-datatables.css" rel="stylesheet">
 
@@ -48,10 +42,9 @@
         <link href="bower_components/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.min.css" rel="stylesheet">
         <link href="bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet">
         <!-- MDI ICON -->
-        <link href="bower_components/mdi/css/materialdesignicons.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="bower_components/mdi/css/materialdesignicons.css" media="all" rel="stylesheet" type="text/css"/>
 
-        <link href="css/style.css" media="all" rel="stylesheet" type="text/css" />
-
+        <link href="css/style.css" media="all" rel="stylesheet" type="text/css"/>
 
         <script src="js/app.js"></script>
         <script src="js/adherents/adherentsModule.js"></script>
@@ -71,7 +64,7 @@
         <script src="js/login/testVueConnectedController.js"></script>
     </head>
     <body ng-controller="testVueConnectedController">
-        <nav class="navbar navbar-default" ng-show="adminConnect() || etudientConnect()" >
+        <nav class="navbar navbar-default" ng-show="adminConnect() || etudientConnect()">
 
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -83,7 +76,9 @@
                         <span class="icon-bar"></span>
 
                     </button>
-                    <a ng-class="{active:isActive('login')}" class="navbar-brand" href="#/"><i class="mdi mdi-book-open-page-variant"></i></a>
+                    <a ng-class="{active:isActive('login')}" class="navbar-brand" href="#/">
+                        <i class="mdi mdi-book-open-page-variant"></i>
+                    </a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -102,28 +97,27 @@
                         </li>
                         <li ng-class="{active:isActive('adherent')}">
                             <a href="#/ficheAdherent" ng-show="adminConnect()">Fiche Adhérent</a>
-						</li>
+                        </li>
 
                     </ul>
 
-                    <ul class="nav navbar-nav navbar-right"  >
+                    <ul class="nav navbar-nav navbar-right">
                         <li>
-                        <form ng-controller="LoginController" class="login" ng-submit="deconnection()">
+                            <form ng-controller="LoginController" class="login" ng-submit="deconnection()">
 
-                	<input type="submit" value="Deconnection"  class="btn btn-success btn-sm" />
-                </form>
+                                <input type="submit" value="Deconnection" class="btn btn-success btn-sm"/>
+                            </form>
 
                         </li>
- 					</ul>
-                    </div>
-                    <!-- /.navbar-collapse -->
+                    </ul>
                 </div>
-                <!-- /.container-fluid -->
-            </nav>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
 
-            <ng-view></ng-view>
+        <ng-view></ng-view>
 
-        </body>
+    </body>
 
-
-    </html>
+</html>

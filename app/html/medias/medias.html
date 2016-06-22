@@ -1,68 +1,35 @@
-<div class="container">
+<table id="mediaTable" datatable="ng" datatable="ng" dt-options="dtOptions" class="display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titre</th>
+            <th>Auteur</th>
+            <th>Type</th>
+            <th>Emprunteur</th>
+            <th>Date d'emprunt</th>
 
-<!-- 	<form ng-submit="recherche"> -->
-<!-- 		<div class="form-group"> -->
-<!-- 	    	<label for="singleSelect">Titre</label> -->
-<!-- 			<input type="contient" ng-model="titreAChercher" placeholder="titre" class="form-control"/> -->
-<!-- 		</div> -->
-<!-- 		<div class="form-group"> -->
-<!-- 			<label for="singleSelect">Auteur</label>	 -->
-<!-- 			<input type="contient" ng-model="auteurAChercher" placeholder="nom auteur" class="form-control"/> -->
-<!-- 		</div> -->
-<!-- 		<div class="form-group"> -->
-<!-- 			<label for="singleSelect">Type</label> -->
-<!-- 				<select name="SelectMediaType" id="SelectMediaTypeId" ng-model="data.SelectMediaType" multiple class="form-control"> -->
-<!-- 	      			<option value="Livre">Livre</option> -->
-<!-- 	     			<option value="CD">CD</option> -->
-<!-- 	      			<option value="DVD">DVD</option> -->
-<!-- 	    		</select> -->
-<!-- 	    </div> -->
-<!-- 	    <div style="text-align:center"> -->
-<!-- 	        <button type="submit" class="btn btn-default">Recherche</button>	 -->
-<!-- 		</div> -->
-<!-- 	</form> -->
-	<form ng-submit="creationMedia">
-		<div style="text-align:center; margin-top:10px;">
-		<a href="#/ficheMedias" class="btn btn-warning">Nouveau</a>
-<!-- 	//		<button type="submit" class="btn btn-warning" style=" width: 95px">Nouveau</button> -->
-		</div>
-	</form>
-	
-	<table id="mediaTable" datatable="ng" datatable="ng" dt-options="dtOptions" class="display" cellspacing="0" width="100%">
-		<thead>
-			<tr>
-				<th>ID</th>
-                <th>Titre</th>
-                <th>Auteur</th>
-                <th>Type</th>
-                <th>Emprunteur</th>
-                <th>Date d'emprunt</th>
-                
-            </tr>
-        </thead>
-        <tfoot>
+        </tr>
+    </thead>
+    <tfoot>
 
-           <tr>
-           		<th>ID</th>
-                <th>Titre</th>
-                <th>Auteur</th>
-                <th>Type</th>
-                <th>Emprunteur</th>
-                <th>Date d'emprunt</th>
-            </tr>
-        </tfoot>
-        <tbody>
-            
-            <tr ng-repeat="item in list">
-   				<td ng-bind="item.id"></td>         
-				<td ng-bind="item.titre"></td>
-				<td ng-bind="item.auteur"></td>
-				<td ng-bind="item.type"></td>
-				<td ng-bind="item.emprunteur.nom +' '+ item.emprunteur.prenom"></td>
-				<td ng-bind="item.emprunteurs[0].depart| date: 'dd MMMM yyyy'"></td>
-			</tr>
-        </tbody>
-    </table>
-    
-    
-</div>
+        <tr>
+            <th>ID</th>
+            <th>Titre</th>
+            <th>Auteur</th>
+            <th>Type</th>
+            <th>Emprunteur</th>
+            <th>Date d'emprunt</th>
+        </tr>
+    </tfoot>
+    <tbody>
+
+        <tr ng-repeat="item in list">
+            <td ng-bind="item.id"></td>
+            <td ng-bind="item.titre"></td>
+            <td ng-bind="item.auteur"></td>
+            <td ng-bind="item.type"></td>
+            <td ng-bind="item.emprunteur.nom +' '+ item.emprunteur.prenom"></td>
+            <td ng-bind="item.emprunteurs[0].depart| date: 'dd MMMM yyyy'"></td>
+        </tr>
+    </tbody>
+</table>
