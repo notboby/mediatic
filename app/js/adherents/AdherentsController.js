@@ -1,5 +1,5 @@
 angular.module('adherentsModule')
-    .controller('AdherentsController', function($scope, $window, adherentsService, DTOptionsBuilder /*, DTColumnDefBuilder*/ ) {
+    .controller('AdherentsController', function($scope, $http, $window, adherentsService, DTOptionsBuilder /*, DTColumnDefBuilder*/ ) {
 
 
             $scope.adherent = [];
@@ -55,6 +55,42 @@ angular.module('adherentsModule')
 
 
             }
+            
+            $scope.ajout = function(){
+
+    			
+    			var UrlCreation = 'http://192.168.10.12:8090/resource/adherant.creation';
+    			$http.post(UrlCreation,
+    					{
+    				nom:$scope.adherent.nom, 
+    				prenom:$scope.adherent.prenom, 
+    				date_naissance:$scope.adherent.date_naissance,
+    				email:$scope.adherent.email,
+    				adresse:{
+    						ligne1:$scope.adherent.adresse.ligne1,
+    						ligne2:'',
+    						codepostal:$scope.adherent.adresse.codepostal,
+    						ville:$scope.adherent.adresse.ville
+    					},
+    				cotisation:{
+    					"debut":"2016-01-01T00:00:00.000Z",
+    					"fin":"2017-01-01T00:00:00:.000Z",
+    					"montant":2
+    				},
+    				"age": $scope.adherent.age,
+    				"emprunt":[]
+    				}
+    					).then(function(response){
+
+    						console.log("OK fiche adherant  creation!!!!!");
+    						console.log(response.data);
+    						
+    					}, function(response){
+    						console.log($scope.adherent);
+    						console.error('Erreur de connexion lors de la création d\'un media', response);
+    						//$http.defaults.headers.common.authorization = 'Basic ';
+    					});
+    	}
 
 
     });
