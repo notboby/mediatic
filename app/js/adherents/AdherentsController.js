@@ -1,30 +1,13 @@
 angular.module('adherentsModule')
-    .controller('AdherentsController', function($scope, $window, adherentsService, DTOptionsBuilder /*, DTColumnDefBuilder*/ ) {
 
+    .controller('AdherentsController', function($scope, $window, $rootScope, adherentsService, DTOptionsBuilder) {
 
-            $scope.adherent = [];
-            $scope.adherents = [];
+    	$rootScope.pageActive = "adherents";
+    	$scope.adherents = [];
+
             adherentsService.getAdherents().then(function(param) {
                 $scope.adherents = param;
             });
-
-            $scope.calculAge = function() {
-                var dateNaiss = $scope.adherent.date_naissance;
-                if (dateNaiss !== undefined) {
-                    dateNaiss = dateNaiss.split("/");
-
-
-                    var dateNaissFormat = new Date(dateNaiss[1] + ' ' + dateNaiss[0] + ' ' + dateNaiss[2]);
-
-                    var ageDifMs = Date.now() - dateNaissFormat.getTime();
-                    var ageDate = new Date(ageDifMs);
-                    var ageFinal = Math.abs(ageDate.getUTCFullYear() - 1970);
-                    $scope.adherent.age = ageFinal;
-
-
-                }
-            }
-
 
             //ajoute une option de 'rowCallback'
             $scope.dtOptions = DTOptionsBuilder.newOptions().withOption('rowCallback', rowCallback);
@@ -40,21 +23,4 @@ angular.module('adherentsModule')
                 });
                 return nRow;
             }
-
-
-
-            $scope.finCotisation = function() {
-                var dateDeb = $scope.adherent.datePaiementCotisation
-                if (dateDeb !== undefined) {
-                    dateDeb = dateDeb.split("/");
-                    var dateDebFormat = new Date(dateDeb[1] + ' ' + dateDeb[0] + ' ' + dateDeb[2]);
-                    var dateFinAbonnement = new Date(dateDebFormat.setFullYear(dateDebFormat.getFullYear() + 1));
-                    $scope.adherent.dateFinAbonnement = dateFinAbonnement.toLocaleDateString();
-
-                }
-
-
-            }
-
-
     });
